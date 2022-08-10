@@ -1,7 +1,7 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { FhirException } from 'src/exception/fhir.exception';
+import { FhirInformationException } from 'src/exception/fhir-information.exception';
 import { Patient, PatientDocument } from '../schemas/FHIRResource/Patient';
 
 @Injectable()
@@ -9,8 +9,12 @@ export class PatientService {
     constructor(@InjectModel(Patient.name) private PatientModel: Model<PatientDocument>) {}
 
     async create(data): Promise<Patient> {
-        const createdPatient = new this.PatientModel(data);
-        return await createdPatient.save();
+        const createdPatient = await new this.PatientModel(data).save();
+        if(!createdPatient){
+            throw new BadRequestException("not created");
+        }else{
+            throw new FhirInformationException("created")
+        }
     }
 
     async findAll(): Promise<Patient[]> {
@@ -21,7 +25,7 @@ export class PatientService {
         const findPatient = await this.PatientModel.findById(id).exec()
 
         if (!findPatient) {
-            throw new FhirException()
+            throw new NotFoundException(`${id} not found`);
         }
 
         return findPatient;
@@ -31,10 +35,10 @@ export class PatientService {
         const deletedPatient = await this.PatientModel.findByIdAndDelete(id)
 
         if (!deletedPatient) {
-            throw new NotFoundException(`Patient #${id} not found`);
+            throw new NotFoundException(`${id} not found`);
+        }else{
+            throw new FhirInformationException(`${id} is deleted`)
         }
-
-        return deletedPatient;
     }
 
     async update(data): Promise<Patient> {
@@ -44,9 +48,9 @@ export class PatientService {
         });
 
         if (!updatedPatient) {
-            throw new NotFoundException(`Patient #${id} not found`);
+            throw new NotFoundException(`${id} not found`);
+        }else{
+            throw new FhirInformationException(`${id} is updated`)
         }
-
-        return updatedPatient;
     }
 }
