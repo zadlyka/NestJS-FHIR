@@ -1,4 +1,4 @@
-import { FhirValidatePipe } from './fhir_validate.pipe';
+import { FhirValidatePipe } from './fhir-validate.pipe';
 
 describe('FhirValidatePipe', () => {
   it('should be defined', () => {
