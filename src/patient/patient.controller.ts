@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, UseFilters, UsePipes } from '@nestjs/common';
 import { FhirExceptionFilter } from 'src/filter/fhir-exception.filter';
 import { FhirValidatePipe } from 'src/pipe/fhir-validate.pipe';
-import { Patient } from '../schemas/FHIRResource/Patient';
+import { Patient } from '../schemas/FHIRResource/Patient.schema';
 import { PatientService } from './patient.service';
 
 @Controller('patient')

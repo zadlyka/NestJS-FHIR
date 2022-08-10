@@ -2,7 +2,7 @@ import { BadRequestException, Injectable, NotFoundException } from '@nestjs/comm
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { FhirInformationException } from 'src/exception/fhir-information.exception';
-import { Patient, PatientDocument } from '../schemas/FHIRResource/Patient';
+import { Patient, PatientDocument } from '../schemas/FHIRResource/Patient.schema';
 
 @Injectable()
 export class PatientService {
