@@ -18,7 +18,12 @@ export class PatientService {
     }
 
     async findAll(): Promise<Patient[]> {
-        return await this.PatientModel.find().exec();
+        const findPatient = await this.PatientModel.find().exec()
+        if (!findPatient) {
+            throw new NotFoundException(`not found`);
+        }
+
+        return findPatient;
     }
 
     async findOne(id: string): Promise<Patient> {
