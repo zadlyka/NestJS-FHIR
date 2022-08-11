@@ -1,12 +1,17 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { FhirInformationException } from 'src/exception/fhir-information.exception';
+import { FhirInformationException } from '../common/exception/fhir-information.exception';
+import { FhirPaginateService } from '../common/service/fhir-paginate.service';
 import { Patient, PatientDocument } from '../schemas/FHIRResource/Patient.schema';
+import { PatientPaginationQueryDto } from './dto/patient-fhir-pagination-query.dto';
 
 @Injectable()
 export class PatientService {
-    constructor(@InjectModel(Patient.name) private PatientModel: Model<PatientDocument>) {}
+    constructor(
+        @InjectModel(Patient.name) private PatientModel: Model<PatientDocument>,
+        private readonly paginateService: FhirPaginateService
+    ) {}
 
     async create(data): Promise<Patient> {
         const createdPatient = await new this.PatientModel(data).save();
@@ -17,12 +22,8 @@ export class PatientService {
         }
     }
 
-    async findAll(): Promise<Patient[]> {
-        const findPatient = await this.PatientModel.find().exec()
-        if (!findPatient) {
-            throw new NotFoundException(`not found`);
-        }
-
+    async findAll(paginationQuery: PatientPaginationQueryDto) {
+        const findPatient = await this.paginateService.paginate(this.PatientModel.find(), paginationQuery, "patient");
         return findPatient;
     }
 

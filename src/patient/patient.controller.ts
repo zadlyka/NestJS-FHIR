@@ -1,7 +1,8 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, UseFilters, UsePipes } from '@nestjs/common';
-import { FhirExceptionFilter } from 'src/filter/fhir-exception.filter';
-import { FhirValidatePipe } from 'src/pipe/fhir-validate.pipe';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query, UseFilters, UsePipes } from '@nestjs/common';
+import { FhirExceptionFilter } from '../common/filter/fhir-exception.filter';
+import { FhirValidatePipe } from '../common/pipe/fhir-validate.pipe';
 import { Patient } from '../schemas/FHIRResource/Patient.schema';
+import { PatientPaginationQueryDto } from './dto/patient-fhir-pagination-query.dto';
 import { PatientService } from './patient.service';
 
 @Controller('patient')
@@ -10,8 +11,8 @@ export class PatientController {
 
     @Get()
     @UseFilters(new FhirExceptionFilter())
-    async findAll() {
-        return await this.service.findAll();
+    async findAll(@Query() paginationQuery: PatientPaginationQueryDto) {
+        return await this.service.findAll(paginationQuery);
     }
 
     @Post()
