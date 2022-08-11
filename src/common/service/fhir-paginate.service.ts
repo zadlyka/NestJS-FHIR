@@ -41,14 +41,6 @@ export class FhirPaginateService {
     return await link;
   }
 
-  async getQuery(query){
-    delete query['limit'];
-    delete query['page'];
-    delete query['_sort'];
-
-    return query;
-  }
-
   async getEntry(data){
     let entry = []
     for(const item of data){
@@ -69,19 +61,21 @@ export class FhirPaginateService {
     let limit = Number(query['limit']);
     let page = Number(query['page']);
     let skip = limit * (page - 1);
-    let sort;
+    let sort = null;
 
-    if(query['_sort']){
-      switch(resource){
-        case 'patient':
-          sort = await this.fhirPatientService.getSort(query['_sort']);
-          break;
-        default:
-          sort = null;
-          break;
-      }
-    }else{
-      sort = null;
+    switch(resource){
+      case 'patient':
+        if(query){
+          if(query['_sort']){
+            sort = await this.fhirPatientService.getSort(query['_sort']);
+          }
+
+          query = await this.fhirPatientService.getQuery(query);
+        }
+        break;
+      default:
+        sort = null;
+        break;
     }
 
     let total = 0;
@@ -91,11 +85,10 @@ export class FhirPaginateService {
       skip = total - limit;
     }
 
-    query = await this.getQuery(query);
     let findData = await model.find(query).limit(limit).skip(skip).sort(sort).exec()
-    let count = await model.count().clone(); 
-
-    if (!findData) {
+    let count = await model.count().clone();
+    
+    if (!findData || (Array.isArray(findData) && findData.length < 1)) {
       throw new NotFoundException(`not found`);
     }
 
