@@ -109,6 +109,9 @@ export class FhirPatientService {
     let keys = Object.keys(query);
     for(const item of keys){
       switch(item){
+        case '_id':
+          temp['_id'] = query['_id'];
+          break;
         case 'active':
           temp['active'] = {$regex: query['active'], $options: "i"};
           break;

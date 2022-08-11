@@ -81,9 +81,6 @@ export class FhirPaginateService {
     let total = 0;
     total = await model.count().clone();    
 
-    if(skip > total){
-      skip = total - limit;
-    }
 
     let findData = await model.find(query).limit(limit).skip(skip).sort(sort).exec()
     let count = await model.count().clone();

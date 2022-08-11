@@ -1,0 +1,809 @@
+{
+	"info": {
+		"_postman_id": "242931db-d9f6-41fb-833c-b9b9a8d9c0e1",
+		"name": "NestJS-FHIR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17561834"
+	},
+	"item": [
+		{
+			"name": "Patient",
+			"item": [
+				{
+					"name": "Create Patient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"resourceType\" : \"Patient\",\r\n    \"identifier\" : [\r\n        {\r\n            \"use\": \"usual\",\r\n            \"type\": {\r\n                \"coding\": [\r\n                    {\r\n                        \"system\": \"http://terminology.hl7.org/CodeSystem/v2-0203\",\r\n                        \"code\": \"MR\"\r\n                    }\r\n                ]\r\n            },\r\n            \"system\": \"https://api.ashaivf.id/patient\",\r\n            \"value\": \"01-00003\"\r\n        }\r\n    ],\r\n    \"name\" : [\r\n        {\r\n            \"use\" : \"usual\",\r\n            \"text\" : \"Vara Zadlyka\"\r\n        }\r\n    ],\r\n    \"telecom\" : [\r\n        {\r\n            \"system\" : \"phone\",\r\n            \"value\" : \"082281267865\",\r\n            \"use\" : \"work\"\r\n        }\r\n    ],\r\n    \"address\": [\r\n        {\r\n            \"use\": \"home\",\r\n            \"type\": \"postal\",\r\n            \"text\": \"Bandar Agung, Lahat\",\r\n            \"line\": [\r\n                \"waru 3\"\r\n            ],\r\n            \"city\": \"Lahat\",\r\n            \"district\": \"Lahat\",\r\n            \"state\": \"sumatera selatan\",\r\n            \"postalCode\": \"31416\"\r\n        }\r\n    ],\r\n    \"gender\" : \"male\",\r\n    \"birthDate\" : \"1905-08-23\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/patient",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"patient"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Error Create Patient",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"resourceType\" : \"Patient\",\r\n    \"identifier\" : [\r\n        {\r\n            \"use\": \"usual\",\r\n            \"type\": {\r\n                \"coding\": [\r\n                    {\r\n                        \"system\": \"http://terminology.hl7.org/CodeSystem/v2-0203\",\r\n                        \"code\": \"MR\"\r\n                    }\r\n                ]\r\n            },\r\n            \"system\": \"https://api.ashaivf.id/patient\",\r\n            \"value\": \"01-00003\"\r\n        }\r\n    ],\r\n    \"name\" : [\r\n        {\r\n            \"use\" : \"usual\",\r\n            \"text\" : \"Vara Zadlyka\"\r\n        }\r\n    ],\r\n    \"telecom\" : [\r\n        {\r\n            \"system\" : \"phone\",\r\n            \"value\" : \"082281267865\",\r\n            \"use\" : \"work\"\r\n        }\r\n    ],\r\n    \"address\": [\r\n        {\r\n            \"use\": \"home\",\r\n            \"type\": \"postal\",\r\n            \"text\": \"Bandar Agung, Lahat\",\r\n            \"line\": [\r\n                \"waru 3\"\r\n            ],\r\n            \"city\": \"Lahat\",\r\n            \"district\": \"Lahat\",\r\n            \"state\": \"sumatera selatan\",\r\n            \"postalCode\": \"31416\"\r\n        }\r\n    ],\r\n    \"gender\" : [\"male\"],\r\n    \"birthDate\" : \"1905-08-23\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/patient",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"patient"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "149"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"95-iTcw2PJB4mWn/lODDNUN23L0T9I\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Aug 2022 07:36:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resourceType\": \"OperationOutcome\",\n    \"issue\": [\n        {\n            \"severity\": \"error\",\n            \"code\": \"exception\",\n            \"diagnostics\": \"Bad Request Exception\",\n            \"expression\": [\n                \"/patient\"\n            ]\n        }\n    ]\n}"
+						},
+						{
+							"name": "Success Create Patient",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"resourceType\" : \"Patient\",\r\n    \"identifier\" : [\r\n        {\r\n            \"use\": \"usual\",\r\n            \"type\": {\r\n                \"coding\": [\r\n                    {\r\n                        \"system\": \"http://terminology.hl7.org/CodeSystem/v2-0203\",\r\n                        \"code\": \"MR\"\r\n                    }\r\n                ]\r\n            },\r\n            \"system\": \"https://api.ashaivf.id/patient\",\r\n            \"value\": \"01-00003\"\r\n        }\r\n    ],\r\n    \"name\" : [\r\n        {\r\n            \"use\" : \"usual\",\r\n            \"text\" : \"Vara Zadlyka\"\r\n        }\r\n    ],\r\n    \"telecom\" : [\r\n        {\r\n            \"system\" : \"phone\",\r\n            \"value\" : \"082281267865\",\r\n            \"use\" : \"work\"\r\n        }\r\n    ],\r\n    \"address\": [\r\n        {\r\n            \"use\": \"home\",\r\n            \"type\": \"postal\",\r\n            \"text\": \"Bandar Agung, Lahat\",\r\n            \"line\": [\r\n                \"waru 3\"\r\n            ],\r\n            \"city\": \"Lahat\",\r\n            \"district\": \"Lahat\",\r\n            \"state\": \"sumatera selatan\",\r\n            \"postalCode\": \"31416\"\r\n        }\r\n    ],\r\n    \"gender\" : \"male\",\r\n    \"birthDate\" : \"1905-08-23\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/patient",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"patient"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "170"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"aa-VxqmBWtn5n6IzicC4Aq7NsNN2tg\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Aug 2022 07:51:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resourceType\": \"OperationOutcome\",\n    \"issue\": [\n        {\n            \"severity\": \"information\",\n            \"code\": \"informational\",\n            \"diagnostics\": \"62f4b4e52be2507747429785 created\",\n            \"expression\": [\n                \"/patient\"\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit Patient",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"resourceType\" : \"Patient\",\r\n    \"id\": \"62f461c66f33c7c881f24888\",\r\n    \"identifier\" : [\r\n        {\r\n            \"use\": \"usual\",\r\n            \"type\": {\r\n                \"coding\": [\r\n                    {\r\n                        \"system\": \"http://terminology.hl7.org/CodeSystem/v2-0203\",\r\n                        \"code\": \"MR\"\r\n                    }\r\n                ]\r\n            },\r\n            \"system\": \"https://api.ashaivf.id/patient\",\r\n            \"value\": \"01-00001\"\r\n        }\r\n    ],\r\n    \"name\" : [\r\n        {\r\n            \"use\" : \"usual\",\r\n            \"text\" : \"Lyka\"\r\n        }\r\n    ],\r\n    \"telecom\" : [\r\n        {\r\n            \"system\" : \"phone\",\r\n            \"value\" : \"082281267863\",\r\n            \"use\" : \"work\"\r\n        },\r\n        {\r\n            \"system\" : \"email\",\r\n            \"value\" : \"tara02zadlyka@gmail.com\",\r\n            \"use\" : \"work\"\r\n        },\r\n        {\r\n            \"system\" : \"other\",\r\n            \"value\" : \"082281267863\",\r\n            \"use\" : \"work\"\r\n        }\r\n    ],\r\n    \"address\": [\r\n        {\r\n            \"use\": \"home\",\r\n            \"type\": \"postal\",\r\n            \"text\": \"Bandar Agung, Lahat\",\r\n            \"line\": [\r\n                \"waru 3\"\r\n            ],\r\n            \"city\": \"Lahat\",\r\n            \"district\": \"Lahat\",\r\n            \"state\": \"sumatera selatan\",\r\n            \"postalCode\": \"31414\"\r\n        }\r\n    ],\r\n    \"gender\" : \"male\",\r\n    \"maritalStatus\": {\r\n        \"coding\": [\r\n            {\r\n                \"system\": \"http://terminology.hl7.org/CodeSystem/v3-MaritalStatus\",\r\n                \"code\": \"U\",\r\n                \"version\": \"v3\",\r\n                \"display\": \"unmarried\"\r\n            }\r\n        ],\r\n        \"text\": \"Currently not in a marriage contract.\"\r\n    },\r\n    \"photo\": [\r\n        {\r\n            \"url\": \"https://asha-ivf-frontend.vercel.app/assets/asha-ivf.96456ae9.png\",\r\n            \"title\": \"ktp\"\r\n        }\r\n    ],\r\n    \"birthDate\" : \"1905-08-23\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/patient",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"patient"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success Edit Patient",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"resourceType\" : \"Patient\",\r\n    \"id\": \"62f461c66f33c7c881f24888\",\r\n    \"identifier\" : [\r\n        {\r\n            \"use\": \"usual\",\r\n            \"type\": {\r\n                \"coding\": [\r\n                    {\r\n                        \"system\": \"http://terminology.hl7.org/CodeSystem/v2-0203\",\r\n                        \"code\": \"MR\"\r\n                    }\r\n                ]\r\n            },\r\n            \"system\": \"https://api.ashaivf.id/patient\",\r\n            \"value\": \"01-00001\"\r\n        }\r\n    ],\r\n    \"name\" : [\r\n        {\r\n            \"use\" : \"usual\",\r\n            \"text\" : \"Lyka\"\r\n        }\r\n    ],\r\n    \"telecom\" : [\r\n        {\r\n            \"system\" : \"phone\",\r\n            \"value\" : \"082281267863\",\r\n            \"use\" : \"work\"\r\n        },\r\n        {\r\n            \"system\" : \"email\",\r\n            \"value\" : \"tara02zadlyka@gmail.com\",\r\n            \"use\" : \"work\"\r\n        },\r\n        {\r\n            \"system\" : \"other\",\r\n            \"value\" : \"082281267863\",\r\n            \"use\" : \"work\"\r\n        }\r\n    ],\r\n    \"address\": [\r\n        {\r\n            \"use\": \"home\",\r\n            \"type\": \"postal\",\r\n            \"text\": \"Bandar Agung, Lahat\",\r\n            \"line\": [\r\n                \"waru 3\"\r\n            ],\r\n            \"city\": \"Lahat\",\r\n            \"district\": \"Lahat\",\r\n            \"state\": \"sumatera selatan\",\r\n            \"postalCode\": \"31414\"\r\n        }\r\n    ],\r\n    \"gender\" : \"male\",\r\n    \"maritalStatus\": {\r\n        \"coding\": [\r\n            {\r\n                \"system\": \"http://terminology.hl7.org/CodeSystem/v3-MaritalStatus\",\r\n                \"code\": \"U\",\r\n                \"version\": \"v3\",\r\n                \"display\": \"unmarried\"\r\n            }\r\n        ],\r\n        \"text\": \"Currently not in a marriage contract.\"\r\n    },\r\n    \"photo\": [\r\n        {\r\n            \"url\": \"https://asha-ivf-frontend.vercel.app/assets/asha-ivf.96456ae9.png\",\r\n            \"title\": \"ktp\"\r\n        }\r\n    ],\r\n    \"birthDate\" : \"1905-08-23\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/patient",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"patient"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "173"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ad-SjrgejX1hxPnIAESRcvxvi9CdH4\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Aug 2022 07:38:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resourceType\": \"OperationOutcome\",\n    \"issue\": [\n        {\n            \"severity\": \"information\",\n            \"code\": \"informational\",\n            \"diagnostics\": \"62f461c66f33c7c881f24888 is updated\",\n            \"expression\": [\n                \"/patient\"\n            ]\n        }\n    ]\n}"
+						},
+						{
+							"name": "Error Edit Patient",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"resourceType\" : \"Patient\",\r\n    \"id\": \"62f461c66f33c7c881f24888\",\r\n    \"identifier\" : [\r\n        {\r\n            \"use\": \"usual\",\r\n            \"type\": {\r\n                \"coding\": [\r\n                    {\r\n                        \"system\": \"http://terminology.hl7.org/CodeSystem/v2-0203\",\r\n                        \"code\": \"MR\"\r\n                    }\r\n                ]\r\n            },\r\n            \"system\": \"https://api.ashaivf.id/patient\",\r\n            \"value\": \"01-00001\"\r\n        }\r\n    ],\r\n    \"name\" : \r\n        {\r\n            \"use\" : \"usual\",\r\n            \"text\" : \"Lyka\"\r\n        }\r\n    ,\r\n    \"telecom\" : [\r\n        {\r\n            \"system\" : \"phone\",\r\n            \"value\" : \"082281267863\",\r\n            \"use\" : \"work\"\r\n        },\r\n        {\r\n            \"system\" : \"email\",\r\n            \"value\" : \"tara02zadlyka@gmail.com\",\r\n            \"use\" : \"work\"\r\n        },\r\n        {\r\n            \"system\" : \"other\",\r\n            \"value\" : \"082281267863\",\r\n            \"use\" : \"work\"\r\n        }\r\n    ],\r\n    \"address\": [\r\n        {\r\n            \"use\": \"home\",\r\n            \"type\": \"postal\",\r\n            \"text\": \"Bandar Agung, Lahat\",\r\n            \"line\": [\r\n                \"waru 3\"\r\n            ],\r\n            \"city\": \"Lahat\",\r\n            \"district\": \"Lahat\",\r\n            \"state\": \"sumatera selatan\",\r\n            \"postalCode\": \"31414\"\r\n        }\r\n    ],\r\n    \"gender\" : \"male\",\r\n    \"maritalStatus\": {\r\n        \"coding\": [\r\n            {\r\n                \"system\": \"http://terminology.hl7.org/CodeSystem/v3-MaritalStatus\",\r\n                \"code\": \"U\",\r\n                \"version\": \"v3\",\r\n                \"display\": \"unmarried\"\r\n            }\r\n        ],\r\n        \"text\": \"Currently not in a marriage contract.\"\r\n    },\r\n    \"photo\": [\r\n        {\r\n            \"url\": \"https://asha-ivf-frontend.vercel.app/assets/asha-ivf.96456ae9.png\",\r\n            \"title\": \"ktp\"\r\n        }\r\n    ],\r\n    \"birthDate\" : \"1905-08-23\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/patient",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"patient"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "149"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"95-iTcw2PJB4mWn/lODDNUN23L0T9I\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Aug 2022 07:38:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resourceType\": \"OperationOutcome\",\n    \"issue\": [\n        {\n            \"severity\": \"error\",\n            \"code\": \"exception\",\n            \"diagnostics\": \"Bad Request Exception\",\n            \"expression\": [\n                \"/patient\"\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "List Patient",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/patient?limit=2&page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"patient"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "_id",
+									"value": "62f32a849a95b3024e99bf40",
+									"disabled": true
+								},
+								{
+									"key": "_sort",
+									"value": "telecom",
+									"disabled": true
+								},
+								{
+									"key": "active",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "address-city",
+									"value": "lahat",
+									"disabled": true
+								},
+								{
+									"key": "address-state",
+									"value": "sumatera barat",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success List Patient",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/patient?limit=2&page=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"patient"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "2"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "_id",
+											"value": "62f32a849a95b3024e99bf4a",
+											"disabled": true
+										},
+										{
+											"key": "_sort",
+											"value": "telecom",
+											"disabled": true
+										},
+										{
+											"key": "active",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "address-city",
+											"value": "lahat",
+											"disabled": true
+										},
+										{
+											"key": "address-state",
+											"value": "sumatera barat",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2130"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"852-vgrGDPA6UVYOv2AeBRvl3yFZDxY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Aug 2022 07:39:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resourceType\": \"Bundle\",\n    \"total\": 2,\n    \"type\": \"searchset\",\n    \"link\": [\n        {\n            \"relation\": \"current\",\n            \"url\": \"http://localhost:3000/patient?limit=2&page=1\"\n        },\n        {\n            \"relation\": \"next\",\n            \"url\": \"http://localhost:3000/patient?limit=2&page=2\"\n        }\n    ],\n    \"entry\": [\n        {\n            \"resource\": {\n                \"_id\": \"62f461c66f33c7c881f24888\",\n                \"resourceType\": \"Patient\",\n                \"extension\": [],\n                \"modifierExtension\": [],\n                \"identifier\": [\n                    {\n                        \"use\": \"usual\",\n                        \"type\": {\n                            \"coding\": [\n                                {\n                                    \"system\": \"http://terminology.hl7.org/CodeSystem/v2-0203\",\n                                    \"code\": \"MR\"\n                                }\n                            ]\n                        },\n                        \"system\": \"https://api.ashaivf.id/patient\",\n                        \"value\": \"01-00001\"\n                    }\n                ],\n                \"name\": [\n                    {\n                        \"use\": \"usual\",\n                        \"text\": \"Lyka\"\n                    }\n                ],\n                \"telecom\": [\n                    {\n                        \"system\": \"phone\",\n                        \"value\": \"082281267863\",\n                        \"use\": \"work\"\n                    },\n                    {\n                        \"system\": \"email\",\n                        \"value\": \"tara02zadlyka@gmail.com\",\n                        \"use\": \"work\"\n                    },\n                    {\n                        \"system\": \"other\",\n                        \"value\": \"082281267863\",\n                        \"use\": \"work\"\n                    }\n                ],\n                \"gender\": \"male\",\n                \"birthDate\": \"1905-08-23\",\n                \"address\": [\n                    {\n                        \"use\": \"home\",\n                        \"type\": \"postal\",\n                        \"text\": \"Bandar Agung, Lahat\",\n                        \"line\": [\n                            \"waru 3\"\n                        ],\n                        \"city\": \"Lahat\",\n                        \"district\": \"Lahat\",\n                        \"state\": \"sumatera selatan\",\n                        \"postalCode\": \"31414\"\n                    }\n                ],\n                \"photo\": [\n                    {\n                        \"url\": \"https://asha-ivf-frontend.vercel.app/assets/asha-ivf.96456ae9.png\",\n                        \"title\": \"ktp\"\n                    }\n                ],\n                \"contact\": [],\n                \"communication\": [],\n                \"generalPractitioner\": [],\n                \"link\": [],\n                \"maritalStatus\": {\n                    \"coding\": [\n                        {\n                            \"system\": \"http://terminology.hl7.org/CodeSystem/v3-MaritalStatus\",\n                            \"code\": \"U\",\n                            \"version\": \"v3\",\n                            \"display\": \"unmarried\"\n                        }\n                    ],\n                    \"text\": \"Currently not in a marriage contract.\"\n                },\n                \"id\": \"62f461c66f33c7c881f24888\"\n            },\n            \"search\": {\n                \"mode\": \"match\"\n            }\n        },\n        {\n            \"resource\": {\n                \"_id\": \"62f461ee6f33c7c881f2488a\",\n                \"resourceType\": \"Patient\",\n                \"extension\": [],\n                \"modifierExtension\": [],\n                \"identifier\": [\n                    {\n                        \"use\": \"usual\",\n                        \"type\": {\n                            \"coding\": [\n                                {\n                                    \"system\": \"http://terminology.hl7.org/CodeSystem/v2-0203\",\n                                    \"code\": \"MR\"\n                                }\n                            ]\n                        },\n                        \"system\": \"https://api.ashaivf.id/patient\",\n                        \"value\": \"01-00002\"\n                    }\n                ],\n                \"name\": [\n                    {\n                        \"use\": \"usual\",\n                        \"text\": \"Uara Zadlyka\"\n                    }\n                ],\n                \"telecom\": [\n                    {\n                        \"system\": \"phone\",\n                        \"value\": \"082281267864\",\n                        \"use\": \"work\"\n                    }\n                ],\n                \"gender\": \"male\",\n                \"birthDate\": \"1905-08-22\",\n                \"address\": [\n                    {\n                        \"use\": \"home\",\n                        \"type\": \"postal\",\n                        \"text\": \"Bandar Agung, Lahat\",\n                        \"line\": [\n                            \"waru 3\"\n                        ],\n                        \"city\": \"Lahat\",\n                        \"district\": \"Lahat\",\n                        \"state\": \"sumatera selatan\",\n                        \"postalCode\": \"31415\"\n                    }\n                ],\n                \"photo\": [],\n                \"contact\": [],\n                \"communication\": [],\n                \"generalPractitioner\": [],\n                \"link\": [],\n                \"id\": \"62f461ee6f33c7c881f2488a\"\n            },\n            \"search\": {\n                \"mode\": \"match\"\n            }\n        }\n    ]\n}"
+						},
+						{
+							"name": "Error List Patient",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/patient?limit=2&page=1&_id=62f32a849a95b3024e99bf40",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"patient"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "2"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "_id",
+											"value": "62f32a849a95b3024e99bf40"
+										},
+										{
+											"key": "_sort",
+											"value": "telecom",
+											"disabled": true
+										},
+										{
+											"key": "active",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "address-city",
+											"value": "lahat",
+											"disabled": true
+										},
+										{
+											"key": "address-state",
+											"value": "sumatera barat",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "181"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b5-W2oZ91q8SIRjcqf+u63lDNq0chE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Aug 2022 07:42:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resourceType\": \"OperationOutcome\",\n    \"issue\": [\n        {\n            \"severity\": \"error\",\n            \"code\": \"not-found\",\n            \"diagnostics\": \"not found\",\n            \"expression\": [\n                \"/patient?limit=2&page=1&_id=62f32a849a95b3024e99bf40\"\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Patient",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/patient/62f461ee6f33c7c881f2488a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"patient",
+								"62f461ee6f33c7c881f2488a"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Error Get Patient",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/patient/62f461ee6f33c7c881f24880",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"patient",
+										"62f461ee6f33c7c881f24880"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "187"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bb-Qu0mBApmTcBxp9tYfMIvj7gVx88\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Aug 2022 07:46:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resourceType\": \"OperationOutcome\",\n    \"issue\": [\n        {\n            \"severity\": \"error\",\n            \"code\": \"not-found\",\n            \"diagnostics\": \"62f461ee6f33c7c881f24880 not found\",\n            \"expression\": [\n                \"/patient/62f461ee6f33c7c881f24880\"\n            ]\n        }\n    ]\n}"
+						},
+						{
+							"name": "Success Get Patient",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/patient/62f461ee6f33c7c881f2488a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"patient",
+										"62f461ee6f33c7c881f2488a"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "717"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2cd-otM0k3ehqz8EcTux0pt7P6lqvTQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Aug 2022 07:46:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"62f461ee6f33c7c881f2488a\",\n    \"resourceType\": \"Patient\",\n    \"extension\": [],\n    \"modifierExtension\": [],\n    \"identifier\": [\n        {\n            \"use\": \"usual\",\n            \"type\": {\n                \"coding\": [\n                    {\n                        \"system\": \"http://terminology.hl7.org/CodeSystem/v2-0203\",\n                        \"code\": \"MR\"\n                    }\n                ]\n            },\n            \"system\": \"https://api.ashaivf.id/patient\",\n            \"value\": \"01-00002\"\n        }\n    ],\n    \"name\": [\n        {\n            \"use\": \"usual\",\n            \"text\": \"Uara Zadlyka\"\n        }\n    ],\n    \"telecom\": [\n        {\n            \"system\": \"phone\",\n            \"value\": \"082281267864\",\n            \"use\": \"work\"\n        }\n    ],\n    \"gender\": \"male\",\n    \"birthDate\": \"1905-08-22\",\n    \"address\": [\n        {\n            \"use\": \"home\",\n            \"type\": \"postal\",\n            \"text\": \"Bandar Agung, Lahat\",\n            \"line\": [\n                \"waru 3\"\n            ],\n            \"city\": \"Lahat\",\n            \"district\": \"Lahat\",\n            \"state\": \"sumatera selatan\",\n            \"postalCode\": \"31415\"\n        }\n    ],\n    \"photo\": [],\n    \"contact\": [],\n    \"communication\": [],\n    \"generalPractitioner\": [],\n    \"link\": [],\n    \"id\": \"62f461ee6f33c7c881f2488a\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Patient",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/patient/62f461c66f33c7c881f24888",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"patient",
+								"62f461c66f33c7c881f24888"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success Delete Patient",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/patient/62f461c66f33c7c881f24888",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"patient",
+										"62f461c66f33c7c881f24888"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "198"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c6-ftbrz27MbabTRVnutwbx/EnRfgM\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Aug 2022 07:44:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resourceType\": \"OperationOutcome\",\n    \"issue\": [\n        {\n            \"severity\": \"information\",\n            \"code\": \"informational\",\n            \"diagnostics\": \"62f461c66f33c7c881f24888 is deleted\",\n            \"expression\": [\n                \"/patient/62f461c66f33c7c881f24888\"\n            ]\n        }\n    ]\n}"
+						},
+						{
+							"name": "Error Delete Patient",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/patient/62f1d6762f13e8fb05b1c0f9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"patient",
+										"62f1d6762f13e8fb05b1c0f9"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "187"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bb-Fy6s23qiEE31Y4Kf1w1OEK7PJdw\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Aug 2022 07:43:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resourceType\": \"OperationOutcome\",\n    \"issue\": [\n        {\n            \"severity\": \"error\",\n            \"code\": \"not-found\",\n            \"diagnostics\": \"62f1d6762f13e8fb05b1c0f9 not found\",\n            \"expression\": [\n                \"/patient/62f1d6762f13e8fb05b1c0f9\"\n            ]\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

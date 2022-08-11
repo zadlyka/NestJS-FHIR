@@ -18,7 +18,7 @@ export class PatientService {
         if(!createdPatient){
             throw new BadRequestException("not created");
         }else{
-            throw new FhirInformationException("created")
+            throw new FhirInformationException(`${createdPatient._id} created`)
         }
     }
 
