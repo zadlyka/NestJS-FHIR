@@ -37,6 +37,15 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Postman
+
+[Postman](https://github.com/zadlyka/NestJS-FHIR/tree/master/postman) Using Postman
+
+
+## Reference
+[FHIR](http://hl7.org/fhir/index.html)
+[HAPI FHIR](https://hapi.fhir.org/baseR4/swagger-ui/)
+
 ## License
 
 [MIT licensed](LICENSE).
