@@ -41,6 +41,8 @@ $ npm run test:cov
 
 [Postman](https://github.com/zadlyka/NestJS-FHIR/tree/master/postman) Using Postman
 
+## HL7 resources that have been used
+* Patient
 
 ## Reference
 [FHIR](http://hl7.org/fhir/index.html)
